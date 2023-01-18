@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,6 +10,8 @@ public class Enemy : MonoBehaviour
     [SerializeField] float maxVelocity;
     [SerializeField] bool shouldMove; //the viruses should move, but the viral mass should not
     [SerializeField] Player player;
+
+    //variable for sound to play
 
     [SerializeField] float sprayTimer;
 
@@ -26,6 +29,10 @@ public class Enemy : MonoBehaviour
     void Update()
     {
         MoveTwoardsPlayer();
+        Vector3 direction = (Camera.main.ScreenToWorldPoint(Input.mousePosition) - player.transform.position).normalized;
+        Debug.Log(direction.magnitude);
+        Debug.DrawRay(player.transform.position, direction * player.SprayRange); //i dont understand why but this is inaccurate to the range
+
     }
 
     void MoveTwoardsPlayer()
@@ -64,4 +71,27 @@ public class Enemy : MonoBehaviour
         }
     }
 
+
+    private void OnMouseOver()
+    {
+
+
+        if (Vector3.Distance(player.transform.position, transform.position) <= player.SprayRange)
+        {
+            Debug.Log("close!");
+            if (Input.GetMouseButton(1))
+            {
+                sprayTimer -= Time.deltaTime;
+                Debug.Log("spraying " + sprayTimer);
+                if(sprayTimer <= 0)
+                {
+                    Destroy(gameObject);
+                }
+            }
+            else if (!Input.GetMouseButton(1))
+            {
+
+            }
+        }
+    }
 }

@@ -10,6 +10,8 @@ public class InfectedHuman : MonoBehaviour
 
     [SerializeField] float sprayTimer;
 
+    [SerializeField] Player player;
+
     float spawnTimer;
 
     
@@ -47,12 +49,37 @@ public class InfectedHuman : MonoBehaviour
 
 
     //how do curing work? on click?
-    public void Spray()
+    //public void Spray()
+    //{
+    //    sprayTimer -= Time.deltaTime;
+    //    if (sprayTimer <= 0)
+    //    {
+    //        cured=true;
+    //        Debug.Log("cured!");
+    //    }
+    //}
+
+    private void OnMouseOver()
     {
-        sprayTimer -= Time.deltaTime;
-        if (sprayTimer <= 0)
+
+
+        if (Vector3.Distance(player.transform.position, transform.position) <= player.SprayRange)
         {
-            cured=true;
+            Debug.Log("close!");
+            if (Input.GetMouseButton(1))
+            {
+                sprayTimer -= Time.deltaTime;
+                Debug.Log("spraying " + sprayTimer);
+                if (sprayTimer <= 0)
+                {
+                    cured = true;
+                    GetComponent<SpriteRenderer>().color = Color.blue;
+                }
+            }
+            else if (!Input.GetMouseButton(1))
+            {
+
+            }
         }
     }
 }

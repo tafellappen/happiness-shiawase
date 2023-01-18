@@ -12,6 +12,14 @@ public class Player : MonoBehaviour
         set { health = value; }
     }
 
+    [SerializeField] private float sprayRange;
+
+    public float SprayRange
+    {
+        get { return sprayRange; }
+        set { sprayRange = value; }
+    }
+
 
     [SerializeField] private float speed = 5.0f;
     [SerializeField] private float jumpPower = 10.0f;
@@ -101,8 +109,8 @@ public class Player : MonoBehaviour
 
         }
 
-        Debug.Log(health);
-        Debug.Log(invincibilityCountdown);
+        //Debug.Log(health);
+        //Debug.Log(invincibilityCountdown);
         //todo: check if player dead and end game somehow
     }
 
