@@ -9,6 +9,7 @@ public class InfectedHuman : MonoBehaviour
     [SerializeField] float secondsBetweenSpawn;
 
     [SerializeField] float sprayTimer;
+    [SerializeField] float infectDistance = 15;
 
     [SerializeField] Player player;
 
@@ -27,7 +28,15 @@ public class InfectedHuman : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        SpawnVirus();
+        var pos1 = transform.position;
+        var playerController = GameObject.FindGameObjectWithTag("Player");
+        var pos2 = playerController.transform.position;
+
+        var distance = Vector3.Distance(pos1, pos2);
+        if (distance < infectDistance) {
+            SpawnVirus();
+        }
+       
     }
 
     void SpawnVirus()

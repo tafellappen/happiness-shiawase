@@ -5,6 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [SerializeField] private int health;
+    [SerializeField] private Camera mainCamera;
 
     public int Health
     {
@@ -38,7 +39,7 @@ public class Player : MonoBehaviour
 
     private float horizontalInput;
 
-
+    private Vector3 positionDiff;
     private void Awake()
     {
         body = GetComponent<Rigidbody2D>();
@@ -50,12 +51,15 @@ public class Player : MonoBehaviour
     void Start()
     {
         invincibilityCountdown = invincibilityFrames;
+        positionDiff =  mainCamera.transform.position - transform.position;
     }
 
     // Update is called once per frame
     // Update is called once per frame
     void Update()
     {
+
+        mainCamera.transform.position = transform.position + positionDiff;
         invincibilityCountdown -= 1;
 
         horizontalInput = Input.GetAxis("Horizontal");
