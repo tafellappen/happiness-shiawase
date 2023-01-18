@@ -5,7 +5,13 @@ using UnityEngine;
 public class InfectedHuman : MonoBehaviour
 {
 
-    [SerializeField] int virusSpawnRate;
+    [SerializeField] GameObject enemy;
+    [SerializeField] float secondsBetweenSpawn;
+
+    float spawnTimer;
+
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -15,7 +21,14 @@ public class InfectedHuman : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //when this creates virus, it will need to attach the player object here (cant do that on the virus prefab in inspector)
+        // https://answers.unity.com/questions/1331151/c-need-help-making-an-enemy-spawn-timer.html
+        spawnTimer += Time.deltaTime;
+
+        if (spawnTimer > secondsBetweenSpawn)
+        {
+            spawnTimer = 0;
+            Instantiate(enemy, transform.position, Quaternion.Euler(0, 0, 0));
+        }
     }
 
 }
