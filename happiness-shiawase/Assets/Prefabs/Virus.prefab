@@ -102,7 +102,9 @@ MonoBehaviour:
   damageToPlayer: 0
   moveSpeed: 1
   maxVelocity: 1
+  shouldMove: 0
   player: {fileID: 0}
+  sprayTimer: 0
 --- !u!50 &1759062151
 Rigidbody2D:
   serializedVersion: 4
@@ -113,7 +115,7 @@ Rigidbody2D:
   m_GameObject: {fileID: 5025281255284349061}
   m_BodyType: 0
   m_Simulated: 1
-  m_UseFullKinematicContacts: 0
+  m_UseFullKinematicContacts: 1
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0

@@ -5,30 +5,54 @@ using UnityEngine;
 public class InfectedHuman : MonoBehaviour
 {
 
-    [SerializeField] GameObject enemy;
+    [SerializeField] GameObject virus;
     [SerializeField] float secondsBetweenSpawn;
+
+    [SerializeField] float sprayTimer;
 
     float spawnTimer;
 
+    
+    bool cured;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        cured = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        // https://answers.unity.com/questions/1331151/c-need-help-making-an-enemy-spawn-timer.html
-        spawnTimer += Time.deltaTime;
-
-        if (spawnTimer > secondsBetweenSpawn)
-        {
-            spawnTimer = 0;
-            Instantiate(enemy, transform.position, Quaternion.Euler(0, 0, 0));
-        }
+        SpawnVirus();
     }
 
+    void SpawnVirus()
+    {
+        if (!cured)
+        {
+            // https://answers.unity.com/questions/1331151/c-need-help-making-an-enemy-spawn-timer.html
+            spawnTimer += Time.deltaTime;
+
+            if (spawnTimer > secondsBetweenSpawn)
+            {
+                spawnTimer = 0;
+                Instantiate(virus, transform.position, Quaternion.Euler(0, 0, 0));
+            }
+
+        }
+
+    }
+
+
+    //how do curing work? on click?
+    public void Spray()
+    {
+        sprayTimer -= Time.deltaTime;
+        if (sprayTimer <= 0)
+        {
+            cured=true;
+        }
+    }
 }

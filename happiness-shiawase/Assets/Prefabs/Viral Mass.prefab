@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &3032305895120075843
+--- !u!1 &2611439371537183247
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,40 +8,40 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6431759176004395082}
-  - component: {fileID: 5427259208199570483}
-  - component: {fileID: 5940749083786808022}
-  - component: {fileID: 1793288325500699633}
-  - component: {fileID: 501771218103416514}
+  - component: {fileID: 6381147048912570464}
+  - component: {fileID: 7787120687395053446}
+  - component: {fileID: 5547316524722472837}
+  - component: {fileID: 7899575639095267301}
+  - component: {fileID: 5909235251032022486}
   m_Layer: 0
-  m_Name: Infected
+  m_Name: Viral Mass
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6431759176004395082
+--- !u!4 &6381147048912570464
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3032305895120075843}
+  m_GameObject: {fileID: 2611439371537183247}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.6507015, y: -0.109847136, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 2.6, y: -6.95, z: 0}
+  m_LocalScale: {x: 1.5857, y: 2.3844, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &5427259208199570483
+--- !u!212 &7787120687395053446
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3032305895120075843}
+  m_GameObject: {fileID: 2611439371537183247}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -76,42 +76,44 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee, type: 3}
-  m_Color: {r: 0.735849, g: 0.62237626, b: 0.03123886, a: 1}
+  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Color: {r: 0.8301887, g: 0.16055535, b: 0.5660619, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 2}
+  m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!70 &5940749083786808022
-CapsuleCollider2D:
+--- !u!114 &5547316524722472837
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3032305895120075843}
+  m_GameObject: {fileID: 2611439371537183247}
   m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1, y: 2}
-  m_Direction: 0
---- !u!50 &1793288325500699633
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aedeb8b09cbdcbe4bbdbf832f721d744, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageToPlayer: 0
+  moveSpeed: 0
+  maxVelocity: 0
+  shouldMove: 0
+  player: {fileID: 0}
+  sprayTimer: 0
+--- !u!50 &7899575639095267301
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3032305895120075843}
-  m_BodyType: 0
+  m_GameObject: {fileID: 2611439371537183247}
+  m_BodyType: 2
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -119,23 +121,34 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 119ff744e245025458c4b3cf6fabf282, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &501771218103416514
-MonoBehaviour:
+--- !u!61 &5909235251032022486
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3032305895120075843}
+  m_GameObject: {fileID: 2611439371537183247}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 396da3ca43a82f44287fd93bc2ad2609, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  virus: {fileID: 5025281255284349061, guid: d064c5c5591cf5c429e27a14597de6c5, type: 3}
-  secondsBetweenSpawn: 5
-  sprayTimer: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0

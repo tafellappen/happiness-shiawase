@@ -7,7 +7,11 @@ public class Enemy : MonoBehaviour
     [SerializeField] int damageToPlayer;
     [SerializeField] float moveSpeed;
     [SerializeField] float maxVelocity;
+    [SerializeField] bool shouldMove; //the viruses should move, but the viral mass should not
     [SerializeField] Player player;
+
+    [SerializeField] float sprayTimer;
+
 
     Rigidbody2D rigidbody2D;
 
@@ -24,7 +28,7 @@ public class Enemy : MonoBehaviour
         MoveTwoardsPlayer();
     }
 
-    private void MoveTwoardsPlayer()
+    void MoveTwoardsPlayer()
     {
         //find the direction of the player, normalize
         Vector3 direction = Vector3.Normalize(player.transform.position - transform.position);
@@ -34,9 +38,30 @@ public class Enemy : MonoBehaviour
 
 
         //add movement to current position
-        rigidbody2D.AddForce(movementThisFrame);
+        rigidbody2D.AddForce(movementThisFrame); //does not work with kinematic rigidbody
+
 
         //clamp velocity so it doesnt go nuts
         rigidbody2D.velocity = Vector2.ClampMagnitude(rigidbody2D.velocity, maxVelocity);
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            player.TakeDamage(damageToPlayer);
+        }
+
+
+        
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            player.TakeDamage(damageToPlayer);
+        }
+    }
+
 }
