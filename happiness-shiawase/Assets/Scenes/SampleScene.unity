@@ -5145,6 +5145,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 725078990}
+    - target: {fileID: 501771218103416514, guid: f7543e845ce652748b22cd8215fb1a17, type: 3}
+      propertyPath: secondsBetweenSpawn
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 3032305895120075843, guid: f7543e845ce652748b22cd8215fb1a17, type: 3}
       propertyPath: m_Name
       value: Infected

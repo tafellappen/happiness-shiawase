@@ -99,12 +99,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aedeb8b09cbdcbe4bbdbf832f721d744, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageToPlayer: 0
+  damageToPlayer: 1
   moveSpeed: 1
   maxVelocity: 1
   shouldMove: 0
   player: {fileID: 0}
-  sprayTimer: 0
+  sprayTimer: 2
 --- !u!50 &1759062151
 Rigidbody2D:
   serializedVersion: 4
