@@ -102,9 +102,9 @@ MonoBehaviour:
   damageToPlayer: 1
   moveSpeed: 1
   maxVelocity: 1
-  shouldMove: 0
+  shouldMove: 1
   player: {fileID: 0}
-  sprayTimer: 2
+  sprayTimer: 0.2
 --- !u!50 &1759062151
 Rigidbody2D:
   serializedVersion: 4

@@ -137,6 +137,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   virus: {fileID: 5025281255284349061, guid: d064c5c5591cf5c429e27a14597de6c5, type: 3}
-  secondsBetweenSpawn: 2
+  secondsBetweenSpawn: 4
   sprayTimer: 2
+  infectDistance: 15
   player: {fileID: 0}
